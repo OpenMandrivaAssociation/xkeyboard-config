@@ -2,7 +2,7 @@
 Name: x11-data-xkbdata
 Epoch: 1
 Version: %{pkgversion}
-Release: %mkrel 3
+Release: %mkrel 4
 BuildArch: noarch
 Summary: Alternative xkb data files
 URL:   http://www.freedesktop.org/wiki/Software_2fXKeyboardConfig
