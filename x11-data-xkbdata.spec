@@ -1,22 +1,37 @@
-%define pkgversion 0.8
+%define pkgversion 1.1
 Name: x11-data-xkbdata
 Epoch: 1
 Version: %{pkgversion}
-Release: %mkrel 4
+Release: %mkrel 1
 BuildArch: noarch
-Summary: Alternative xkb data files
+Summary: xkb data files
 URL:   http://www.freedesktop.org/wiki/Software_2fXKeyboardConfig
 Group: Development/X11
-Source: http://xlibs.freedesktop.org/xkbdesc/xkeyboard-config-%{pkgversion}.tar.bz2 
-Source1: xkbd_new_names.pl
+# cvs -d:pserver:anoncvs@cvs.freedesktop.org:/cvs/xkeyboard-config login
+# <press enter>
+# cvs -d:pserver:anoncvs@cvs.freedesktop.org:/cvs/xkeyboard-config co -r v_1_1 xkeyboard-config
+Source: xkeyboard-config-%{pkgversion}.tar.bz2 
+
+# symbols/kg and symbols/la besides looking very simple patches, did not apply
+#   cleanly, so removed for now
+# Dropped all conflicting patches
 Patch0: xkbdata-1.0.1-fixkbd.patch
-Patch1: xkbdata-1.0.1-remove_duplicated.patch
+
+# Morocco symbols/tifinagh should be symbols/ma in the official version
+# Nigerian symbols/ng seens to match
+# Pakistanese is pk in 1.1, not snd
+# symbols/tm "Turkmen" is the same as symbols/tr "Turkey" in 1.1? seens
+#	quite different
+# symbols/urd seens to be 1.1's symbols/in (claims support for all Indian
+#	keyboard layouts)
+# symbols/kur "Kurdish" is apparently in several different Kurdish support
+#	files/descriptions
+# symbols/chr "Cherokee" being dropped? or already integrated in some other
+#	description?
 Patch2: xkbdata-1.0.1-newkbd.patch
-# for compatibility
-Patch3: xkbdata-1.0.1-oldkbd.patch
+
+# Keeping for bugzilla #28919
 Patch4: xkb-fix_uz.patch
-Patch5: xkb-logitech_volumekey_fix.patch
-Patch6: xkb-logiink_fix.patch
 
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
@@ -24,6 +39,7 @@ BuildRoot: %{_tmppath}/%{name}-root
 BuildRequires: x11-util-macros >= 1.0.1
 BuildRequires: xkbcomp >= 1.0.1
 BuildRequires: perl-XML-Parser
+BuildRequires: intltool
 
 %description
 Xkeyboard-config provides consistent, well-structured, frequently released of X
@@ -31,19 +47,21 @@ keyboard configuration data (XKB) for various X Window System implementations.
 
 %prep
 %setup -q -n xkeyboard-config-%{pkgversion}
+
 # Keyboard fixes patches -- pablo
 %patch0 -p1 -b .fixkbd
-# remove duplicate keyboards from the list
-%patch1 -p1 -b .remdup
+
+	#   Not applied as most are already implemented, but in a compeletely
+	#   different way. May need some review as described for Patch2:
+	#   Still just keeping the old patch for reference in case problems
+	#   arise.
 # New keyboard layouts -- pablo
-%patch2 -p1 -b .newkbd
-# Some old keyboard names, for compatibility (to remove for 2008) -- pablo
-%patch3 -p1 -b .oldkbd
+# %patch2 -p1 -b .newkbd
+
 %patch4 -p1 -b .uz_fix
-%patch5 -p1 -b .logitech_volume
-%patch6 -p1 -b .logiink
 
 %build
+./autogen.sh
 %configure2_5x	--x-includes=%{_includedir}\
 		--x-libraries=%{_libdir} \
 		--enable-compat-rules \
