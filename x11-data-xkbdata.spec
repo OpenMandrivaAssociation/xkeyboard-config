@@ -2,10 +2,10 @@
 Name: x11-data-xkbdata
 Epoch: 1
 Version: %{pkgversion}
-Release: %mkrel 2
+Release: %mkrel 3
 BuildArch: noarch
 Summary: xkb data files
-URL:   http://www.freedesktop.org/wiki/Software_2fXKeyboardConfig
+URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
 Group: Development/X11
 # cvs -d:pserver:anoncvs@cvs.freedesktop.org:/cvs/xkeyboard-config login
 # <press enter>
@@ -57,11 +57,12 @@ keyboard configuration data (XKB) for various X Window System implementations.
 	#   arise.
 # New keyboard layouts -- pablo
 # %patch2 -p1 -b .newkbd
+# needed by patch2
+# automake
 
 %patch4 -p1 -b .uz_fix
 
 %build
-./autogen.sh
 %configure2_5x	--x-includes=%{_includedir}\
 		--x-libraries=%{_libdir} \
 		--enable-compat-rules \
