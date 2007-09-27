@@ -2,7 +2,7 @@
 Name: x11-data-xkbdata
 Epoch: 1
 Version: %{pkgversion}
-Release: %mkrel 1
+Release: %mkrel 2
 BuildArch: noarch
 Summary: xkb data files
 URL:   http://www.freedesktop.org/wiki/Software_2fXKeyboardConfig
@@ -76,6 +76,8 @@ rm -rf %{buildroot}
 %makeinstall_std
 
 mkdir -p %{buildroot}%{_localstatedir}/xkb
+#need this symlink for xkb to work (Mdv bug #34195)
+ln -snf %{_localstatedir}/xkb $RPM_BUILD_ROOT/usr/share/X11/xkb/compiled
 
 %clean
 rm -rf %{buildroot}
