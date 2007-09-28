@@ -1,5 +1,7 @@
 %define pkgversion 1.1
-Name: x11-data-xkbdata
+%define old_name x11-data-xkbdata
+
+Name: xkeyboard-config
 Epoch: 1
 Version: %{pkgversion}
 Release: %mkrel 3
@@ -45,8 +47,16 @@ BuildRequires: intltool
 Xkeyboard-config provides consistent, well-structured, frequently released of X
 keyboard configuration data (XKB) for various X Window System implementations.
 
+%package -n %{old_name}
+Summary: %{summary}
+Group: %{group}
+
+%description -n %{old_name}
+Xkeyboard-config provides consistent, well-structured, frequently released of X
+keyboard configuration data (XKB) for various X Window System implementations.
+
 %prep
-%setup -q -n xkeyboard-config-%{pkgversion}
+%setup -q 
 
 # Keyboard fixes patches -- pablo
 %patch0 -p1 -b .fixkbd
@@ -83,13 +93,13 @@ ln -snf %{_localstatedir}/xkb $RPM_BUILD_ROOT/usr/share/X11/xkb/compiled
 %clean
 rm -rf %{buildroot}
 
-%pre
+%pre -n %{old_name}
 # this was a directory in the old installation
 if [ -d "%{_datadir}/X11/xkb/compiled" ]; then
 	rm -rf %{_datadir}/X11/xkb/compiled
 fi
 
-%files
+%files -n %{old_name}
 %defattr(-,root,root)
 %dir %{_datadir}/X11/xkb/
 %dir %{_localstatedir}/xkb
