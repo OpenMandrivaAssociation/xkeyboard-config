@@ -36,7 +36,6 @@ Patch2: xkbdata-1.0.1-newkbd.patch
 Patch4: xkb-fix_uz.patch
 
 License: MIT
-BuildRoot: %{_tmppath}/%{name}-root
 
 BuildRequires: x11-util-macros >= 1.0.1
 BuildRequires: xkbcomp >= 1.0.1
