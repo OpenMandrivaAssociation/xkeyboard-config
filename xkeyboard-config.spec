@@ -4,7 +4,7 @@
 Name: xkeyboard-config
 Epoch: 1
 Version: %{pkgversion}
-Release: %mkrel 3
+Release: %mkrel 4
 BuildArch: noarch
 Summary: xkb data files
 URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
@@ -12,7 +12,7 @@ Group: Development/X11
 # cvs -d:pserver:anoncvs@cvs.freedesktop.org:/cvs/xkeyboard-config login
 # <press enter>
 # cvs -d:pserver:anoncvs@cvs.freedesktop.org:/cvs/xkeyboard-config co -r v_1_1 xkeyboard-config
-Source: xkeyboard-config-%{pkgversion}.tar.bz2 
+Source: xkeyboard-config-%{pkgversion}.tar.bz2
 
 # symbols/kg and symbols/la besides looking very simple patches, did not apply
 #   cleanly, so removed for now
@@ -103,5 +103,3 @@ fi
 %dir %{_datadir}/X11/xkb/
 %dir %{_localstatedir}/xkb
 %{_datadir}/X11/xkb/*
-
-
