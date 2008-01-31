@@ -1,10 +1,10 @@
-%define pkgversion 1.1
+%define pkgversion 1.2
 %define old_name x11-data-xkbdata
 
 Name: xkeyboard-config
 Epoch: 1
 Version: %{pkgversion}
-Release: %mkrel 6
+Release: %mkrel 1
 BuildArch: noarch
 Summary: xkb data files
 URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
@@ -75,10 +75,12 @@ keyboard configuration data (XKB) for various X Window System implementations.
 %patch4 -p1 -b .uz_fix
 %patch5 -p1
 
+# fix build
+aclocal
+autoconf
+
 %build
-%configure2_5x	--x-includes=%{_includedir}\
-		--x-libraries=%{_libdir} \
-		--enable-compat-rules \
+%configure2_5x --enable-compat-rules \
     		--with-xkb-base=%{_datadir}/X11/xkb \
     		--disable-xkbcomp-symlink \
     		--with-xkb-rules-symlink=xorg
@@ -93,6 +95,8 @@ mkdir -p %{buildroot}%{_localstatedir}/xkb
 #need this symlink for xkb to work (Mdv bug #34195)
 ln -snf %{_localstatedir}/xkb $RPM_BUILD_ROOT/usr/share/X11/xkb/compiled
 
+%find_lang %{name}
+
 %clean
 rm -rf %{buildroot}
 
@@ -102,7 +106,7 @@ if [ -d "%{_datadir}/X11/xkb/compiled" ]; then
 	rm -rf %{_datadir}/X11/xkb/compiled
 fi
 
-%files -n %{old_name}
+%files -f %{name}.lang -n %{old_name}
 %defattr(-,root,root)
 %dir %{_datadir}/X11/xkb/
 %dir %{_localstatedir}/xkb
