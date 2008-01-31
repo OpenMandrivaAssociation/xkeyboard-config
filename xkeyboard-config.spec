@@ -44,6 +44,7 @@ BuildRequires: x11-util-macros >= 1.0.1
 BuildRequires: xkbcomp >= 1.0.1
 BuildRequires: perl-XML-Parser
 BuildRequires: intltool
+BuildRequires: glib-gettextize
 
 %description
 Xkeyboard-config provides consistent, well-structured, frequently released of X
