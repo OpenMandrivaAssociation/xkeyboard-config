@@ -6,7 +6,7 @@ Epoch: 1
 Version: %{pkgversion}
 Release: %mkrel 1
 BuildArch: noarch
-Summary: xkb data files
+Summary: XKB data files
 URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
 Group: Development/X11
 # cvs -d:pserver:anoncvs@cvs.freedesktop.org:/cvs/xkeyboard-config login
