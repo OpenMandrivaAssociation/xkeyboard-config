@@ -4,7 +4,7 @@
 Name: xkeyboard-config
 Epoch: 1
 Version: %{pkgversion}
-Release: %mkrel 1
+Release: %mkrel 2
 BuildArch: noarch
 Summary: XKB data files
 URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
@@ -35,7 +35,7 @@ Patch2: xkbdata-1.0.1-newkbd.patch
 # Keeping for bugzilla #28919
 Patch4: xkb-fix_uz.patch
 
-Patch5: xkeyboard-config-1.1-add-various-inet-keys-to-pc105.patch
+Patch5: xkeyboard-config-add-various-inet-keys-to-pc105.patch
 
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
