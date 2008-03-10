@@ -4,14 +4,14 @@
 Name: xkeyboard-config
 Epoch: 1
 Version: %{pkgversion}
-Release: %mkrel 2
+Release: %mkrel 3
 BuildArch: noarch
 Summary: XKB data files
 URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
 Group: Development/X11
 # cvs -d:pserver:anoncvs@cvs.freedesktop.org:/cvs/xkeyboard-config login
 # <press enter>
-# cvs -d:pserver:anoncvs@cvs.freedesktop.org:/cvs/xkeyboard-config co -r v_1_1 xkeyboard-config
+# cvs -d:pserver:anoncvs@cvs.freedesktop.org:/cvs/xkeyboard-config co -r v_1_2 xkeyboard-config
 Source: xkeyboard-config-%{pkgversion}.tar.bz2
 
 # symbols/kg and symbols/la besides looking very simple patches, did not apply
@@ -36,6 +36,9 @@ Patch2: xkbdata-1.0.1-newkbd.patch
 Patch4: xkb-fix_uz.patch
 
 Patch5: xkeyboard-config-add-various-inet-keys-to-pc105.patch
+
+# Fixes: Romanian keyboard layout -> err flag (#38450)
+Patch6: xkeyboard-config-1.2-symbols-ro.patch
 
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
@@ -75,6 +78,7 @@ keyboard configuration data (XKB) for various X Window System implementations.
 
 %patch4 -p1 -b .uz_fix
 %patch5 -p1
+%patch6 -p1 -b .ro_kbd
 
 # fix build
 aclocal
