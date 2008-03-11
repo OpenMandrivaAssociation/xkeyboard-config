@@ -37,9 +37,6 @@ Patch4: xkb-fix_uz.patch
 
 Patch5: xkeyboard-config-add-various-inet-keys-to-pc105.patch
 
-# Fixes: Romanian keyboard layout -> err flag (#38450)
-Patch6: xkeyboard-config-1.2-symbols-ro.patch
-
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
 
@@ -78,7 +75,6 @@ keyboard configuration data (XKB) for various X Window System implementations.
 
 %patch4 -p1 -b .uz_fix
 %patch5 -p1
-%patch6 -p1 -b .ro_kbd
 
 # fix build
 aclocal
