@@ -4,7 +4,7 @@
 Name: xkeyboard-config
 Epoch: 1
 Version: %{pkgversion}
-Release: %mkrel 3
+Release: %mkrel 4
 BuildArch: noarch
 Summary: XKB data files
 URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
