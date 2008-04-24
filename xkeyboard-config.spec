@@ -37,6 +37,9 @@ Patch4: xkb-fix_uz.patch
 
 Patch5: xkeyboard-config-add-various-inet-keys-to-pc105.patch
 
+# Upstream fix for http://bugs.freedesktop.org/show_bug.cgi?id=12764#c8
+Patch6: xkeyboard-config-cvs-fix-finnish-nobreakspace.patch
+
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
 
@@ -75,6 +78,7 @@ keyboard configuration data (XKB) for various X Window System implementations.
 
 %patch4 -p1 -b .uz_fix
 %patch5 -p1
+%patch6 -p1
 
 # fix build
 aclocal
