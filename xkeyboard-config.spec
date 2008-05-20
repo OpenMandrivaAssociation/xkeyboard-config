@@ -4,7 +4,7 @@
 Name: xkeyboard-config
 Epoch: 1
 Version: %{pkgversion}
-Release: %mkrel 6
+Release: %mkrel 7
 BuildArch: noarch
 Summary: XKB data files
 URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
@@ -39,6 +39,9 @@ Patch5: xkeyboard-config-add-various-inet-keys-to-pc105.patch
 
 # Upstream fix for http://bugs.freedesktop.org/show_bug.cgi?id=12764#c8
 Patch6: xkeyboard-config-cvs-fix-finnish-nobreakspace.patch
+
+# remove warning "Expected keysim, got XF86Info: line 959 of inet."
+Patch7: xkeyboard-config-1.2-comment-line-with-invalid-keysym.patch
 
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
@@ -79,6 +82,7 @@ keyboard configuration data (XKB) for various X Window System implementations.
 %patch4 -p1 -b .uz_fix
 %patch5 -p1
 %patch6 -p1
+%patch7 -p1
 
 # fix build
 aclocal
