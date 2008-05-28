@@ -1,10 +1,10 @@
-%define pkgversion 1.2
+%define pkgversion 1.3
 %define old_name x11-data-xkbdata
 
 Name: xkeyboard-config
 Epoch: 1
 Version: %{pkgversion}
-Release: %mkrel 7
+Release: %mkrel 1
 BuildArch: noarch
 Summary: XKB data files
 URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
@@ -17,7 +17,7 @@ Source: xkeyboard-config-%{pkgversion}.tar.bz2
 # symbols/kg and symbols/la besides looking very simple patches, did not apply
 #   cleanly, so removed for now
 # Dropped all conflicting patches
-Patch0: xkbdata-1.0.1-fixkbd.patch
+Patch0: xkeyboard-config-1.3-fixkbd.patch
 
 # Morocco symbols/tifinagh should be symbols/ma in the official version
 # Nigerian symbols/ng seens to match
@@ -36,9 +36,6 @@ Patch2: xkbdata-1.0.1-newkbd.patch
 Patch4: xkb-fix_uz.patch
 
 Patch5: xkeyboard-config-add-various-inet-keys-to-pc105.patch
-
-# Upstream fix for http://bugs.freedesktop.org/show_bug.cgi?id=12764#c8
-Patch6: xkeyboard-config-cvs-fix-finnish-nobreakspace.patch
 
 # remove warning "Expected keysim, got XF86Info: line 959 of inet."
 Patch7: xkeyboard-config-1.2-comment-line-with-invalid-keysym.patch
@@ -81,7 +78,6 @@ keyboard configuration data (XKB) for various X Window System implementations.
 
 %patch4 -p1 -b .uz_fix
 %patch5 -p1
-%patch6 -p1
 %patch7 -p1
 
 # fix build
