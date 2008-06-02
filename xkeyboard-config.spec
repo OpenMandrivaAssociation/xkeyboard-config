@@ -96,9 +96,9 @@ autoconf
 rm -rf %{buildroot}
 %makeinstall_std
 
-mkdir -p %{buildroot}%{_localstatedir}/xkb
+mkdir -p %{buildroot}%{_localstatedir}/lib/xkb
 #need this symlink for xkb to work (Mdv bug #34195)
-ln -snf %{_localstatedir}/xkb $RPM_BUILD_ROOT/usr/share/X11/xkb/compiled
+ln -snf %{_localstatedir}/lib/xkb $RPM_BUILD_ROOT/usr/share/X11/xkb/compiled
 
 %find_lang %{name}
 
@@ -114,5 +114,5 @@ fi
 %files -f %{name}.lang -n %{old_name}
 %defattr(-,root,root)
 %dir %{_datadir}/X11/xkb/
-%dir %{_localstatedir}/xkb
+%dir %{_localstatedir}/lib/xkb
 %{_datadir}/X11/xkb/*
