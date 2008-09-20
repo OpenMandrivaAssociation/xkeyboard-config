@@ -54,6 +54,8 @@ BuildRequires: xkbcomp >= 1.0.1
 BuildRequires: perl-XML-Parser
 BuildRequires: intltool
 BuildRequires: glib-gettextize
+# https://qa.mandriva.com/show_bug.cgi?id=44052
+BuildRequires: gettext-devel
 
 %description
 Xkeyboard-config provides consistent, well-structured, frequently released of X
