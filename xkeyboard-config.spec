@@ -4,7 +4,7 @@
 Name: xkeyboard-config
 Epoch: 1
 Version: %{pkgversion}
-Release: %mkrel 3
+Release: %mkrel 4
 BuildArch: noarch
 Summary: XKB data files
 URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
@@ -18,6 +18,12 @@ Source: xkeyboard-config-%{pkgversion}.tar.bz2
 #   cleanly, so removed for now
 # Dropped all conflicting patches
 Patch0: xkeyboard-config-1.3-fixkbd.patch
+
+# (Anssi 09/2008) Add fi(kotoistus_classic_nbsp) and use that by default.
+# It has nbsp in level4 instead of level3 to avoid typos, as in fi(classic).
+# See http://bugs.freedesktop.org/show_bug.cgi?id=12764
+# Comments have been sent to the Kotoistus project.
+Patch1: xkeyboard-config-1.3-fi-kotoistus_classic_nbsp.patch
 
 # Morocco symbols/tifinagh should be symbols/ma in the official version
 # Nigerian symbols/ng seens to match
@@ -76,6 +82,7 @@ keyboard configuration data (XKB) for various X Window System implementations.
 # needed by patch2
 # automake
 
+%patch1 -p1
 %patch4 -p1 -b .uz_fix
 %patch5 -p1
 %patch7 -p1
