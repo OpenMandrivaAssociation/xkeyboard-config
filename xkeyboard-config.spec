@@ -4,7 +4,7 @@
 Name: xkeyboard-config
 Epoch: 1
 Version: %{pkgversion}
-Release: %mkrel 4
+Release: %mkrel 5
 BuildArch: noarch
 Summary: XKB data files
 URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
@@ -123,5 +123,5 @@ fi
 %files -f %{name}.lang -n %{old_name}
 %defattr(-,root,root)
 %dir %{_datadir}/X11/xkb/
-%dir %{_localstatedir}/lib/xkb
+%attr(1777,root,root) %dir %{_localstatedir}/lib/xkb
 %{_datadir}/X11/xkb/*
