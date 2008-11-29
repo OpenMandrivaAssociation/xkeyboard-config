@@ -1,23 +1,22 @@
-%define pkgversion 1.3
+%define version 1.4
 %define old_name x11-data-xkbdata
 
 Name: xkeyboard-config
 Epoch: 1
-Version: %{pkgversion}
-Release: %mkrel 6
+Version: %{version}
+Release: %mkrel 1
 BuildArch: noarch
 Summary: XKB data files
 URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
 Group: Development/X11
-# cvs -d:pserver:anoncvs@cvs.freedesktop.org:/cvs/xkeyboard-config login
-# <press enter>
-# cvs -d:pserver:anoncvs@cvs.freedesktop.org:/cvs/xkeyboard-config co -r v_1_2 xkeyboard-config
-Source: xkeyboard-config-%{pkgversion}.tar.bz2
+Source: xkeyboard-config-%{version}.tar.bz2
 
 # symbols/kg and symbols/la besides looking very simple patches, did not apply
 #   cleanly, so removed for now
 # Dropped all conflicting patches
-Patch0: xkeyboard-config-1.3-fixkbd.patch
+# (cg) When doing 1.3->1.4 rediff the tj keymap changes were dropped
+# due to an upstream change that seems to address the issue differently
+Patch0: xkeyboard-config-1.4-fixkbd.patch
 
 # (Anssi 09/2008) Add fi(kotoistus_classic_nbsp) and use that by default.
 # It has nbsp in level4 instead of level3 to avoid typos, as in fi(classic).
@@ -42,9 +41,6 @@ Patch2: xkbdata-1.0.1-newkbd.patch
 Patch4: xkb-fix_uz.patch
 
 Patch5: xkeyboard-config-add-various-inet-keys-to-pc105.patch
-
-# remove warning "Expected keysim, got XF86Info: line 959 of inet."
-Patch7: xkeyboard-config-1.2-comment-line-with-invalid-keysym.patch
 
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
@@ -87,7 +83,6 @@ keyboard configuration data (XKB) for various X Window System implementations.
 %patch1 -p1
 %patch4 -p1 -b .uz_fix
 %patch5 -p1
-%patch7 -p1
 
 # fix build
 aclocal
