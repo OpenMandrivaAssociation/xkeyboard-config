@@ -1,4 +1,4 @@
-%define version 1.4
+%define version 1.5
 %define old_name x11-data-xkbdata
 
 Name: xkeyboard-config
