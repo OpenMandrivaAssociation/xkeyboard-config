@@ -4,7 +4,7 @@
 Name: xkeyboard-config
 Epoch: 1
 Version: %{version}
-Release: %mkrel 1
+Release: %mkrel 2
 BuildArch: noarch
 Summary: XKB data files
 URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
@@ -41,6 +41,12 @@ Patch2: xkbdata-1.0.1-newkbd.patch
 Patch4: xkb-fix_uz.patch
 
 Patch5: xkeyboard-config-add-various-inet-keys-to-pc105.patch
+# (fc) 1.5-2mdv map key_battery, wlan, bluetooth, uwb to their XF86 keycodes (GIT)
+Patch6: xkeyboard-config-1.4-battery.patch
+# (fc) 1.5-2mdv some keyboard still needs quirks in evdev (GIT)
+Patch7: xkeyboard-config-1.5-evdevkbds.patch
+# (fc) 1.5-2mdv evdev should send XF86Hibernate instead of XF86Standby for hibernate key
+Patch8: xkeyboard-config-1.5-hibernate-evdev.patch
 
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
@@ -83,6 +89,9 @@ keyboard configuration data (XKB) for various X Window System implementations.
 %patch1 -p1
 %patch4 -p1 -b .uz_fix
 %patch5 -p1
+%patch6 -p1 -b .battery
+%patch7 -p1 -b .evdevkbds
+%patch8 -p1 -b .hibernate
 
 # fix build
 aclocal
