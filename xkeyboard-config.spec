@@ -1,10 +1,12 @@
 %define version 1.5
 %define old_name x11-data-xkbdata
 
+%define git_url git://anongit.freedesktop.org/xkeyboard-config
+
 Name: xkeyboard-config
 Epoch: 1
 Version: %{version}
-Release: %mkrel 2
+Release: %mkrel 3
 BuildArch: noarch
 Summary: XKB data files
 URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
