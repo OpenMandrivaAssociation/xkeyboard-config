@@ -1,4 +1,4 @@
-%define version 1.5
+%define version 1.6
 %define old_name x11-data-xkbdata
 
 %define git_url git://anongit.freedesktop.org/xkeyboard-config
@@ -47,8 +47,6 @@ Patch5: xkeyboard-config-add-various-inet-keys-to-pc105.patch
 Patch6: xkeyboard-config-1.4-battery.patch
 # (fc) 1.5-2mdv some keyboard still needs quirks in evdev (GIT)
 Patch7: xkeyboard-config-1.5-evdevkbds.patch
-# (fc) 1.5-2mdv evdev should send XF86Hibernate instead of XF86Standby for hibernate key
-Patch8: xkeyboard-config-1.5-hibernate-evdev.patch
 
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
@@ -93,7 +91,6 @@ keyboard configuration data (XKB) for various X Window System implementations.
 %patch5 -p1
 %patch6 -p1 -b .battery
 %patch7 -p1 -b .evdevkbds
-%patch8 -p1 -b .hibernate
 
 # fix build
 aclocal
