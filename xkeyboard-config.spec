@@ -6,7 +6,7 @@
 Name: xkeyboard-config
 Epoch: 1
 Version: %{version}
-Release: %mkrel 3
+Release: %mkrel 4
 BuildArch: noarch
 Summary: XKB data files
 URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
@@ -47,6 +47,8 @@ Patch5: xkeyboard-config-add-various-inet-keys-to-pc105.patch
 Patch6: xkeyboard-config-1.4-battery.patch
 # (fc) 1.5-2mdv some keyboard still needs quirks in evdev (GIT)
 Patch7: xkeyboard-config-1.5-evdevkbds.patch
+# Fix ABNT2 mapping for the numpad dot key (output '.' instead of ',') 
+Patch8: xkeyboard-config-1.6-abnt2-dot.patch
 
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
