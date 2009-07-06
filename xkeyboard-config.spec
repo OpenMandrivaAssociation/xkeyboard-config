@@ -6,7 +6,7 @@
 Name: xkeyboard-config
 Epoch: 1
 Version: %{version}
-Release: %mkrel 4
+Release: %mkrel 5
 BuildArch: noarch
 Summary: XKB data files
 URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
@@ -49,6 +49,8 @@ Patch6: xkeyboard-config-1.4-battery.patch
 Patch7: xkeyboard-config-1.5-evdevkbds.patch
 # Fix ABNT2 mapping for the numpad dot key (output '.' instead of ',') 
 Patch8: xkeyboard-config-1.6-abnt2-dot.patch
+# Revert change that disables zapping by default
+Patch9: xkeyboard-config-1.6-Enable-zapping-by-default.patch
 
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
@@ -93,6 +95,8 @@ keyboard configuration data (XKB) for various X Window System implementations.
 %patch5 -p1
 %patch6 -p1 -b .battery
 %patch7 -p1 -b .evdevkbds
+%patch8 -p1 -b .fix-abnt2
+%patch9 -p1 -b .enable-zapping
 
 # fix build
 aclocal
