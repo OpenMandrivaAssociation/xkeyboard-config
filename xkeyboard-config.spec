@@ -1,4 +1,4 @@
-%define version 1.6
+%define version 1.7
 %define old_name x11-data-xkbdata
 
 %define git_url git://anongit.freedesktop.org/xkeyboard-config
@@ -6,7 +6,7 @@
 Name: xkeyboard-config
 Epoch: 1
 Version: %{version}
-Release: %mkrel 5
+Release: %mkrel 1
 BuildArch: noarch
 Summary: XKB data files
 URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
@@ -45,10 +45,6 @@ Patch4: xkb-fix_uz.patch
 Patch5: xkeyboard-config-add-various-inet-keys-to-pc105.patch
 # (fc) 1.5-2mdv map key_battery, wlan, bluetooth, uwb to their XF86 keycodes (GIT)
 Patch6: xkeyboard-config-1.4-battery.patch
-# (fc) 1.5-2mdv some keyboard still needs quirks in evdev (GIT)
-Patch7: xkeyboard-config-1.5-evdevkbds.patch
-# Fix ABNT2 mapping for the numpad dot key (output '.' instead of ',') 
-Patch8: xkeyboard-config-1.6-abnt2-dot.patch
 # Revert change that disables zapping by default
 Patch9: xkeyboard-config-1.6-Enable-zapping-by-default.patch
 
@@ -94,8 +90,6 @@ keyboard configuration data (XKB) for various X Window System implementations.
 %patch4 -p1 -b .uz_fix
 %patch5 -p1
 %patch6 -p1 -b .battery
-%patch7 -p1 -b .evdevkbds
-%patch8 -p1 -b .fix-abnt2
 %patch9 -p1 -b .enable-zapping
 
 # fix build
