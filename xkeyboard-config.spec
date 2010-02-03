@@ -41,7 +41,7 @@ Patch2: xkbdata-1.0.1-newkbd.patch
 # Keeping for bugzilla #28919
 Patch4: xkb-fix_uz.patch
 
-#Patch5: xkeyboard-config-add-various-inet-keys-to-pc105.patch
+Patch5: xkeyboard-config-add-various-inet-keys-to-pc105.patch
 # (fc) 1.5-2mdv map key_battery, wlan, bluetooth, uwb to their XF86 keycodes (GIT)
 Patch6: xkeyboard-config-1.4-battery.patch
 # Revert change that disables zapping by default
@@ -87,7 +87,7 @@ keyboard configuration data (XKB) for various X Window System implementations.
 
 %patch1 -p1
 %patch4 -p1 -b .uz_fix
-%patch5 -p1
+#%patch5 -p1
 %patch6 -p1 -b .battery
 %patch9 -p1 -b .enable-zapping
 
