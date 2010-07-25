@@ -4,8 +4,8 @@
 
 Name: xkeyboard-config
 Epoch: 1
-Version: 1.8
-Release: %mkrel 3
+Version: 1.9
+Release: %mkrel 1
 BuildArch: noarch
 Summary: XKB data files
 URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
@@ -23,7 +23,7 @@ Patch0: xkeyboard-config-1.4-fixkbd.patch
 # It has nbsp in level4 instead of level3 to avoid typos, as in fi(classic).
 # See http://bugs.freedesktop.org/show_bug.cgi?id=12764
 # Comments have been sent to the Kotoistus project.
-Patch1: xkeyboard-config-1.3-fi-kotoistus_classic_nbsp.patch
+Patch1: xkeyboard-config-1.9-fi-kotoistus_classic_nbsp.patch
 
 # Morocco symbols/tifinagh should be symbols/ma in the official version
 # Nigerian symbols/ng seens to match
@@ -43,7 +43,7 @@ Patch4: xkb-fix_uz.patch
 # (fc) 1.5-2mdv map key_battery, wlan, bluetooth, uwb to their XF86 keycodes (GIT)
 Patch6: xkeyboard-config-1.4-battery.patch
 # Revert change that disables zapping by default
-Patch9: xkeyboard-config-1.6-Enable-zapping-by-default.patch
+Patch9: xkeyboard-config-1.9-Enable-zapping-by-default.patch
 
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
@@ -124,3 +124,4 @@ fi
 %dir %{_datadir}/X11/xkb/
 %attr(1777,root,root) %dir %{_localstatedir}/lib/xkb
 %{_datadir}/X11/xkb/*
+%{_datadir}/pkgconfig/xkeyboard-config.pc
