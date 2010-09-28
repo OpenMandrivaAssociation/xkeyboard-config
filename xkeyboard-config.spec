@@ -4,7 +4,7 @@
 
 Name: xkeyboard-config
 Epoch: 1
-Version: 1.9
+Version: 2.0
 Release: %mkrel 1
 BuildArch: noarch
 Summary: XKB data files
