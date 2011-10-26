@@ -4,8 +4,8 @@
 
 Name: xkeyboard-config
 Epoch: 1
-Version: 2.1
-Release: %mkrel 2
+Version: 2.4.1
+Release: %mkrel 1
 BuildArch: noarch
 Summary: XKB data files
 URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
@@ -88,14 +88,15 @@ keyboard configuration data (XKB) for various X Window System implementations.
 %patch6 -p1 -b .battery
 %patch9 -p1 -b .enable-zapping
 
+
+
+%build
 # fix build
 aclocal
 autoconf
 
-%build
 %configure2_5x --enable-compat-rules \
     		--with-xkb-base=%{_datadir}/X11/xkb \
-    		--disable-xkbcomp-symlink \
     		--with-xkb-rules-symlink=xorg
 
 %make
@@ -125,3 +126,4 @@ fi
 %attr(1777,root,root) %dir %{_localstatedir}/lib/xkb
 %{_datadir}/X11/xkb/*
 %{_datadir}/pkgconfig/xkeyboard-config.pc
+%{_mandir}/man7/xkeyboard-config.7.*
