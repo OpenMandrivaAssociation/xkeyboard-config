@@ -107,7 +107,7 @@ rm -rf %{buildroot}
 
 mkdir -p %{buildroot}%{_localstatedir}/lib/xkb
 #need this symlink for xkb to work (Mdv bug #34195)
-ln -snf %{_localstatedir}/lib/xkb $RPM_BUILD_ROOT/usr/share/X11/xkb/compiled
+ln -snf %{_localstatedir}/lib/xkb %{buildroot}/usr/share/X11/xkb/compiled
 
 %find_lang %{name}
 
