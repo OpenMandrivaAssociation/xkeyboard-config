@@ -57,6 +57,7 @@ BuildRequires: xkbcomp >= 1.0.1
 BuildRequires: perl-XML-Parser
 BuildRequires: intltool
 BuildRequires: glib-gettextize
+BuildRequires: x11-proto-devel
 # https://qa.mandriva.com/show_bug.cgi?id=44052
 BuildRequires: gettext-devel
 
