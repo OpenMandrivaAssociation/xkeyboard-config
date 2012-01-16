@@ -45,6 +45,10 @@ Patch6: xkeyboard-config-1.4-battery.patch
 # Revert change that disables zapping by default
 Patch9: xkeyboard-config-1.9-Enable-zapping-by-default.patch
 
+# Add Swiss-German layout with ¨ deadkey, but without turning important
+# development characters like ` or ' into deadkeys
+Patch10: xkeyboard-config-ch-scriptdeadkeys.patch
+
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
 
@@ -87,17 +91,20 @@ keyboard configuration data (XKB) for various X Window System implementations.
 %patch4 -p1 -b .uz_fix
 %patch6 -p1 -b .battery
 %patch9 -p1 -b .enable-zapping
-
-
+%patch10 -p1 -b .ch_scriptdeadkeys
 
 %build
 # fix build
 aclocal
 autoconf
 
-%configure2_5x --enable-compat-rules \
-    		--with-xkb-base=%{_datadir}/X11/xkb \
-    		--with-xkb-rules-symlink=xorg
+# Using %%configure breaks things because
+# config.sub doesn't know what to do with "noarch"
+./configure 	\
+		--prefix=%_prefix \
+		--enable-compat-rules \
+		--with-xkb-base=%{_datadir}/X11/xkb \
+		--with-xkb-rules-symlink=xorg
 
 %make
 
