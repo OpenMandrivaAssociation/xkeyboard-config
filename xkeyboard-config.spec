@@ -4,13 +4,13 @@
 
 Name: xkeyboard-config
 Epoch: 1
-Version: 2.4.1
-Release: 2
+Version: 2.5.1
+Release: 1
 BuildArch: noarch
 Summary: XKB data files
 URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
 Group: Development/X11
-Source: xkeyboard-config-%{version}.tar.bz2
+Source: ftp://xorg.freedesktop.org/pub/individual/data/xkeyboard-config-%{version}.tar.bz2
 
 # symbols/kg and symbols/la besides looking very simple patches, did not apply
 #   cleanly, so removed for now
@@ -50,7 +50,6 @@ Patch9: xkeyboard-config-1.9-Enable-zapping-by-default.patch
 Patch10: xkeyboard-config-ch-scriptdeadkeys.patch
 
 License: MIT
-BuildRoot: %{_tmppath}/%{name}-root
 
 BuildRequires: x11-util-macros >= 1.0.1
 BuildRequires: xkbcomp >= 1.0.1
