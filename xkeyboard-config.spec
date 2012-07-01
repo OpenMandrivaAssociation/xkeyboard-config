@@ -4,13 +4,13 @@
 
 Name: xkeyboard-config
 Epoch: 1
-Version: 2.5.1
+Version: 2.6
 Release: 1
 BuildArch: noarch
 Summary: XKB data files
 URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
 Group: Development/X11
-Source: ftp://xorg.freedesktop.org/pub/individual/data/xkeyboard-config-%{version}.tar.bz2
+Source: ftp://xorg.freedesktop.org/pub/individual/data/xkeyboard-config/xkeyboard-config-%{version}.tar.bz2
 
 # symbols/kg and symbols/la besides looking very simple patches, did not apply
 #   cleanly, so removed for now
