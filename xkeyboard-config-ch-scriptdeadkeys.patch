@@ -1,0 +1,20 @@
+--- xkeyboard-config-1.4/symbols/ch.ark	2008-10-28 16:10:28.555907817 +0000
++++ xkeyboard-config-1.4/symbols/ch	2008-10-28 16:13:08.546532631 +0000
+@@ -71,6 +71,17 @@ xkb_symbols "de_nodeadkeys" {
+     key <AD12> { [   diaeresis,   exclam, bracketright  ] };
+ };
+ 
++partial alphanumeric_keys
++xkb_symbols "de_scriptdeadkeys" {
++    // modify the basic Swiss German layout to avoid dead keys with symbols
++    // commonly used in scripting (^, ', `, ...), but to keep the otherwise
++    // useless ¨ key a dead key
++    include "ch(basic)"
++    name[Group1]= "Switzerland - German, some dead keys";
++    key <AE11> { [  apostrophe, question,        acute  ] };
++    key <AE12> { [ asciicircum,    grave,   asciitilde  ] };
++};
++
+ partial alphanumeric_keys 
+ xkb_symbols "fr" {
+ 
