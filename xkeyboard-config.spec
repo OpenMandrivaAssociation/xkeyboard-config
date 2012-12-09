@@ -2,28 +2,20 @@
 
 %define git_url git://anongit.freedesktop.org/xkeyboard-config
 
-Name: xkeyboard-config
-Epoch: 1
-Version: 2.6
-Release: 1
-BuildArch: noarch
-Summary: XKB data files
-URL:   http://www.freedesktop.org/wiki/Software/XKeyboardConfig
-Group: Development/X11
-Source: ftp://xorg.freedesktop.org/pub/individual/data/xkeyboard-config/xkeyboard-config-%{version}.tar.bz2
-
-# symbols/kg and symbols/la besides looking very simple patches, did not apply
-#   cleanly, so removed for now
-# Dropped all conflicting patches
-# (cg) When doing 1.3->1.4 rediff the tj keymap changes were dropped
-# due to an upstream change that seems to address the issue differently
-Patch0: xkeyboard-config-1.4-fixkbd.patch
-
+Name:		xkeyboard-config
+Epoch:		1
+Version:	2.7
+Release:	1
+Summary:	XKB data files
+License:	MIT
+Group:		Development/X11
+URL:		http://www.freedesktop.org/wiki/Software/XKeyboardConfig
+Source:		xkeyboard-config-%{version}.tar.bz2
 # (Anssi 09/2008) Add fi(kotoistus_classic_nbsp) and use that by default.
 # It has nbsp in level4 instead of level3 to avoid typos, as in fi(classic).
 # See http://bugs.freedesktop.org/show_bug.cgi?id=12764
 # Comments have been sent to the Kotoistus project.
-Patch1: xkeyboard-config-1.9-fi-kotoistus_classic_nbsp.patch
+Patch1:		xkeyboard-config-1.9-fi-kotoistus_classic_nbsp.patch
 
 # Morocco symbols/tifinagh should be symbols/ma in the official version
 # Nigerian symbols/ng seens to match
@@ -36,93 +28,78 @@ Patch1: xkeyboard-config-1.9-fi-kotoistus_classic_nbsp.patch
 #	files/descriptions
 # symbols/chr "Cherokee" being dropped? or already integrated in some other
 #	description?
-Patch2: xkbdata-1.0.1-newkbd.patch
+Patch2:		xkbdata-1.0.1-newkbd.patch
 
-# Keeping for bugzilla #28919
-Patch4: xkb-fix_uz.patch
 # (fc) 1.5-2mdv map key_battery, wlan, bluetooth, uwb to their XF86 keycodes (GIT)
-Patch6: xkeyboard-config-1.4-battery.patch
+Patch6:		xkeyboard-config-1.4-battery.patch
 # Revert change that disables zapping by default
-Patch9: xkeyboard-config-1.9-Enable-zapping-by-default.patch
+Patch9:		xkeyboard-config-1.9-Enable-zapping-by-default.patch
+
+#Add Altai and fix some Russia national layout
+Patch10:	xkeyboard-config-2.7-altai.patch
 
 # Add Swiss-German layout with ¨ deadkey, but without turning important
 # development characters like ` or ' into deadkeys
-Patch10: xkeyboard-config-ch-scriptdeadkeys.patch
+Patch11:	xkeyboard-config-ch-scriptdeadkeys.patch
 
-License: MIT
+Patch12:	xkeyboard-config-2.4.1-br-support.diff
 
-BuildRequires: x11-util-macros >= 1.0.1
-BuildRequires: xkbcomp >= 1.0.1
-BuildRequires: perl-XML-Parser
-BuildRequires: intltool
-BuildRequires: glib-gettextize
-BuildRequires: x11-proto-devel
-BuildRequires: pkgconfig(x11)
-# For the man page
-BuildRequires: xsltproc
+BuildRequires:	pkgconfig(x11)
+BuildRequires:	glib-gettextize
+BuildRequires:	intltool
+BuildRequires:	perl-XML-Parser
+BuildRequires:	x11-proto-devel
+BuildRequires:	x11-util-macros
+BuildRequires:	xkbcomp
+# For the mab page
+BuildRequires:	xsltproc
 # https://qa.mandriva.com/show_bug.cgi?id=44052
-BuildRequires: gettext-devel
+BuildRequires:	gettext-devel
+
+BuildArch:	noarch
 
 %description
 Xkeyboard-config provides consistent, well-structured, frequently released of X
 keyboard configuration data (XKB) for various X Window System implementations.
 
 %package -n %{old_name}
-Summary: %{summary}
-Group: %{group}
+Summary:	%{summary}
+Group:		%{group}
 
 %description -n %{old_name}
 Xkeyboard-config provides consistent, well-structured, frequently released of X
 keyboard configuration data (XKB) for various X Window System implementations.
 
 %prep
-%setup -q 
-
-# Keyboard fixes patches -- pablo
-%patch0 -p1 -b .fixkbd
-
-	#   Not applied as most are already implemented, but in a compeletely
-	#   different way. May need some review as described for Patch2:
-	#   Still just keeping the old patch for reference in case problems
-	#   arise.
-# New keyboard layouts -- pablo
-# %patch2 -p1 -b .newkbd
-# needed by patch2
-# automake
+%setup -q
 
 %patch1 -p1
-%patch4 -p1 -b .uz_fix
 %patch6 -p1 -b .battery
 %patch9 -p1 -b .enable-zapping
-%patch10 -p1 -b .ch_scriptdeadkeys
+%patch10 -p1 -b .russain_national
+%patch11 -p1 -b .ch_scriptdeadkeys
+%patch12 -p1 -b .br
 
-%build
 # fix build
 aclocal
 autoconf
 
-# Using %%configure breaks things because
-# config.sub doesn't know what to do with "noarch"
-./configure 	\
-		--prefix=%_prefix \
-		--enable-compat-rules \
+%build
+%configure2_5x --enable-compat-rules \
 		--with-xkb-base=%{_datadir}/X11/xkb \
-		--with-xkb-rules-symlink=xorg
+		--with-xkb-rules-symlink=xorg \
+		--disable-runtime-deps
 
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 mkdir -p %{buildroot}%{_localstatedir}/lib/xkb
 #need this symlink for xkb to work (Mdv bug #34195)
-ln -snf %{_localstatedir}/lib/xkb %{buildroot}/usr/share/X11/xkb/compiled
+ln -snf %{_localstatedir}/lib/xkb %{buildroot}%{_datadir}/X11/xkb/compiled
 
 %find_lang %{name}
-
-%clean
-rm -rf %{buildroot}
 
 %pre -n %{old_name}
 # this was a directory in the old installation
@@ -131,7 +108,6 @@ if [ -d "%{_datadir}/X11/xkb/compiled" ]; then
 fi
 
 %files -f %{name}.lang -n %{old_name}
-%defattr(-,root,root)
 %dir %{_datadir}/X11/xkb/
 %attr(1777,root,root) %dir %{_localstatedir}/lib/xkb
 %{_datadir}/X11/xkb/*
