@@ -75,7 +75,7 @@ keyboard configuration data (XKB) for various X Window System implementations.
 
 %patch1 -p1
 %patch6 -p1 -b .battery
-%patch9 -p1 -b .enable-zapping
+#patch9 -p1 -b .enable-zapping
 %patch10 -p1 -b .russain_national
 %patch11 -p1 -b .ch_scriptdeadkeys
 %patch12 -p1 -b .br
