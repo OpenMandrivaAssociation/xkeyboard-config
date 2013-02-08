@@ -4,13 +4,13 @@
 
 Name:		xkeyboard-config
 Epoch:		1
-Version:	2.7
+Version:	2.8
 Release:	1
 Summary:	XKB data files
 License:	MIT
 Group:		Development/X11
 URL:		http://www.freedesktop.org/wiki/Software/XKeyboardConfig
-Source:		xkeyboard-config-%{version}.tar.bz2
+Source0:	http://www.x.org/releases/individual/data/xkeyboard-config/xkeyboard-config-%{version}.tar.bz2
 # (Anssi 09/2008) Add fi(kotoistus_classic_nbsp) and use that by default.
 # It has nbsp in level4 instead of level3 to avoid typos, as in fi(classic).
 # See http://bugs.freedesktop.org/show_bug.cgi?id=12764
