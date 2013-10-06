@@ -11,10 +11,10 @@ diff --git a/symbols/fi b/symbols/fi
 index ce9a366..66bee1c 100644
 --- ./symbols/fi.orig	2010-05-13 22:07:22.000000000 +0200
 +++ ./symbols/fi	2010-07-25 10:52:08.000000000 +0200
-@@ -17,6 +17,14 @@
+@@ -7,6 +7,14 @@
  //
  
- partial alphanumeric_keys default
+ default  partial alphanumeric_keys
 +xkb_symbols "kotoistus_classic_nbsp" {
 +    include "fi(kotoistus)"
 +    include "nbsp(level4)"

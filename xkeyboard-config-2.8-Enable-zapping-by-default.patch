@@ -11,10 +11,10 @@ Subject: [PATCH] Enable zapping by default
 diff -p -up ./rules/base.m_s.part.enable-zapping ./rules/base.m_s.part
 --- ./rules/base.m_s.part.enable-zapping	2010-04-23 00:07:20.000000000 +0200
 +++ ./rules/base.m_s.part	2010-07-25 10:56:58.000000000 +0200
-@@ -49,3 +49,4 @@
-   $maclaptop    =       +inet(apple)+level3(enter_switch)
-   $applealu     =       +inet(apple)
+@@ -51,3 +51,4 @@
    $macs	        =       +inet(apple)
+   sun_type7_jp_usb	=	+sun_vndr/solaris(defaults_type7jp)
+   $sun			=		+sun_vndr/solaris(defaults)
 +  *             =       +terminate(ctrl_alt_bksp)
 diff -p -up ./rules/evdev.m_s.part.enable-zapping ./rules/evdev.m_s.part
 --- ./rules/evdev.m_s.part.enable-zapping	2010-03-27 02:35:10.000000000 +0100
