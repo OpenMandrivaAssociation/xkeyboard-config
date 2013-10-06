@@ -33,8 +33,8 @@ diff -ru xkeyboard-config-2.4.1.orig//rules/evdev.xml.in xkeyboard-config-2.4.1/
 diff -ru xkeyboard-config-2.4.1.orig//symbols/fr xkeyboard-config-2.4.1//symbols/fr
 --- xkeyboard-config-2.4.1.orig//symbols/fr	2011-04-27 23:11:45.000000000 +0200
 +++ xkeyboard-config-2.4.1//symbols/fr	2011-10-10 08:32:43.829074668 +0200
-@@ -870,6 +870,112 @@
-     key <AB10>  { [           exclam,          section,           exclamdown,             0x1002212 ] }; // ! § ¡ −
+@@ -833,6 +833,112 @@ xkb_symbols "oci" {
+     key <AB06>  { [                n,                N,               ntilde,                Ntilde ] }; // n N ñ Ñ
  };
  
 +// C'WHERTY: Breton keyboard. Ar c'hlavier brezhoneg.
