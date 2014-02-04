@@ -4,8 +4,8 @@
 
 Name:		xkeyboard-config
 Epoch:		1
-Version:	2.10.1
-Release:	5
+Version:	2.11
+Release:	1
 Summary:	XKB data files
 License:	MIT
 Group:		Development/X11
