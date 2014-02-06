@@ -1,10 +1,9 @@
---- xkeyboard-config-1.4/symbols/ch.ark	2008-10-28 16:10:28.555907817 +0000
-+++ xkeyboard-config-1.4/symbols/ch	2008-10-28 16:13:08.546532631 +0000
-@@ -71,6 +71,17 @@ xkb_symbols "de_nodeadkeys" {
-     key <AD12> { [   diaeresis,   exclam, bracketright  ] };
+--- xkeyboard-config-2.11.tpg/symbols/ch	2013-12-18 22:33:58.000000000 +0000
++++ xkeyboard-config-2.11.tpg/symbols/ch.tpg	2014-02-06 17:06:14.294591989 +0000
+@@ -75,6 +75,17 @@
  };
  
-+partial alphanumeric_keys
+ partial alphanumeric_keys
 +xkb_symbols "de_scriptdeadkeys" {
 +    // modify the basic Swiss German layout to avoid dead keys with symbols
 +    // commonly used in scripting (^, ', `, ...), but to keep the otherwise
@@ -15,6 +14,7 @@
 +    key <AE12> { [ asciicircum,    grave,   asciitilde  ] };
 +};
 +
- partial alphanumeric_keys 
++partial alphanumeric_keys
  xkb_symbols "fr" {
  
+     include "ch(basic)"
