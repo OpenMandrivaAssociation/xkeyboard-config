@@ -38,13 +38,13 @@ Patch6:		xkeyboard-config-1.4-battery.patch
 Patch9:		xkeyboard-config-2.8-Enable-zapping-by-default.patch
 
 #Add Altai and fix some Russia national layout
-Patch10:	xkeyboard-config-2.7-altai.patch
+Patch10:	xkeyboard-config-2.11-altai.patch
 
 # Add Swiss-German layout with ¨ deadkey, but without turning important
 # development characters like ` or ' into deadkeys
 Patch11:	xkeyboard-config-ch-scriptdeadkeys.patch
 
-Patch12:	xkeyboard-config-2.10.1-br-support.diff
+Patch12:	xkeyboard-config-2.10.1-br-support.patch
 
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	glib-gettextize
