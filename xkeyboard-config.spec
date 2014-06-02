@@ -4,7 +4,7 @@
 
 Name:		xkeyboard-config
 Epoch:		1
-Version:	2.11
+Version:	2.12
 Release:	1
 Summary:	XKB data files
 License:	MIT
