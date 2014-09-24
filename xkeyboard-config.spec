@@ -5,7 +5,7 @@
 Name:		xkeyboard-config
 Epoch:		1
 Version:	2.11
-Release:	2
+Release:	3
 Summary:	XKB data files
 License:	MIT
 Group:		Development/X11
@@ -46,6 +46,9 @@ Patch11:	xkeyboard-config-ch-scriptdeadkeys.patch
 
 Patch12:	xkeyboard-config-2.10.1-br-support.patch
 
+# Add upstream reversal of numseparator change (bug #727)  this is in 2.12
+Patch13:	xkeyboard-config-2.11-numsep.patch
+
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	glib-gettextize
 BuildRequires:	intltool
@@ -82,7 +85,7 @@ keyboard configuration data (XKB) for various X Window System implementations.
 %patch10 -p1 -b .russain_national
 %patch11 -p1 -b .ch_scriptdeadkeys
 %patch12 -p1 -b .br
-
+%patch13 -p1 -b .numsep
 # fix build
 aclocal
 autoconf
