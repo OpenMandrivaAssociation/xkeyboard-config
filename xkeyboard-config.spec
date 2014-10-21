@@ -4,13 +4,13 @@
 
 Name:		xkeyboard-config
 Epoch:		1
-Version:	2.12
-Release:	3
+Version:	2.13
+Release:	1
 Summary:	XKB data files
 License:	MIT
 Group:		Development/X11
 URL:		http://www.freedesktop.org/wiki/Software/XKeyboardConfig
-Source0:	http://www.x.org/releases/individual/data/xkeyboard-config/xkeyboard-config-%{version}.tar.bz2
+Source0:	http://www.x.org/releases/individual/data/xkeyboard-config/%{name}-%{version}.tar.bz2
 Source1:	xkeyboard-config.rpmlintrc
 Patch0:		xkeyboard-config-2.10.1-fixkbd.patch
 # (Anssi 09/2008) Add fi(kotoistus_classic_nbsp) and use that by default.
