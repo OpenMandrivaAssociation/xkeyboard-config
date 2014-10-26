@@ -4,8 +4,8 @@
 
 Name:		xkeyboard-config
 Epoch:		1
-Version:	2.12
-Release:	3
+Version:	2.13
+Release:	1
 Summary:	XKB data files
 License:	MIT
 Group:		Development/X11
@@ -80,7 +80,7 @@ keyboard configuration data (XKB) for various X Window System implementations.
 %patch3 -p1
 %patch6 -p1 -b .battery
 #patch9 -p1 -b .enable-zapping
-%patch10 -p1 -b .russain_national
+#patch10 -p1 -b .russain_national
 %patch11 -p1 -b .ch_scriptdeadkeys
 %patch12 -p1 -b .br
 
