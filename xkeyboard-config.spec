@@ -1,16 +1,14 @@
-%define old_name x11-data-xkbdata
-
 %define git_url git://anongit.freedesktop.org/xkeyboard-config
 
 Name:		xkeyboard-config
 Epoch:		1
 Version:	2.13
-Release:	2
-Summary:	XKB data files
+Release:	3
+Summary:	X Keyboard Configuration Database
 License:	MIT
 Group:		Development/X11
 URL:		http://www.freedesktop.org/wiki/Software/XKeyboardConfig
-Source0:	http://www.x.org/releases/individual/data/xkeyboard-config/xkeyboard-config-%{version}.tar.bz2
+Source0:	http://www.x.org/releases/individual/data/xkeyboard-config/%{name}-%{version}.tar.bz2
 Source1:	xkeyboard-config.rpmlintrc
 Patch0:		xkeyboard-config-2.10.1-fixkbd.patch
 # (Anssi 09/2008) Add fi(kotoistus_classic_nbsp) and use that by default.
@@ -58,18 +56,10 @@ BuildRequires:	xkbcomp
 BuildRequires:	xsltproc
 # https://qa.mandriva.com/show_bug.cgi?id=44052
 BuildRequires:	gettext-devel
-
-BuildArch:	noarch
+%rename			x11-data-xkbdata
+BuildArch:		noarch
 
 %description
-Xkeyboard-config provides consistent, well-structured, frequently released of X
-keyboard configuration data (XKB) for various X Window System implementations.
-
-%package -n %{old_name}
-Summary:	%{summary}
-Group:		%{group}
-
-%description -n %{old_name}
 Xkeyboard-config provides consistent, well-structured, frequently released of X
 keyboard configuration data (XKB) for various X Window System implementations.
 
@@ -89,7 +79,7 @@ aclocal
 autoconf
 
 %build
-%configure2_5x \
+%configure \
     --enable-compat-rules \
     --with-xkb-base=%{_datadir}/X11/xkb \
     --with-xkb-rules-symlink=xorg \
@@ -106,13 +96,13 @@ ln -snf %{_localstatedir}/lib/xkb %{buildroot}%{_datadir}/X11/xkb/compiled
 
 %find_lang %{name}
 
-%pre -n %{old_name}
+%pre
 # this was a directory in the old installation
 if [ -d "%{_datadir}/X11/xkb/compiled" ]; then
 	rm -rf %{_datadir}/X11/xkb/compiled
 fi
 
-%files -f %{name}.lang -n %{old_name}
+%files -f %{name}.lang
 %dir %{_datadir}/X11/xkb/
 %attr(1777,root,root) %dir %{_localstatedir}/lib/xkb
 %{_datadir}/X11/xkb/*
