@@ -2,7 +2,7 @@
 
 Name:		xkeyboard-config
 Epoch:		1
-Version:	2.14
+Version:	2.15
 Release:	1
 Summary:	X Keyboard Configuration Database
 License:	MIT
@@ -56,8 +56,8 @@ BuildRequires:	xkbcomp
 BuildRequires:	xsltproc
 # https://qa.mandriva.com/show_bug.cgi?id=44052
 BuildRequires:	gettext-devel
-%rename			x11-data-xkbdata
-BuildArch:		noarch
+%rename		x11-data-xkbdata
+BuildArch:	noarch
 
 %description
 Xkeyboard-config provides consistent, well-structured, frequently released of X
