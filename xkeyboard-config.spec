@@ -10,7 +10,7 @@ Group:		Development/X11
 URL:		http://www.freedesktop.org/wiki/Software/XKeyboardConfig
 Source0:	http://www.x.org/releases/individual/data/xkeyboard-config/%{name}-%{version}.tar.bz2
 Source1:	xkeyboard-config.rpmlintrc
-Patch0:		xkeyboard-config-2.10.1-fixkbd.patch
+Patch0:		xkeyboard-config-2.17-fixkbd.patch
 # (Anssi 09/2008) Add fi(kotoistus_classic_nbsp) and use that by default.
 # It has nbsp in level4 instead of level3 to avoid typos, as in fi(classic).
 # See http://bugs.freedesktop.org/show_bug.cgi?id=12764
