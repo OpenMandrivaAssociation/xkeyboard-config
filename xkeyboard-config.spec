@@ -2,7 +2,7 @@
 
 Name:		xkeyboard-config
 Epoch:		1
-Version:	2.18
+Version:	2.19
 Release:	1
 Summary:	X Keyboard Configuration Database
 License:	MIT
@@ -99,7 +99,7 @@ ln -snf %{_localstatedir}/lib/xkb %{buildroot}%{_datadir}/X11/xkb/compiled
 %pre
 # this was a directory in the old installation
 if [ -d "%{_datadir}/X11/xkb/compiled" ]; then
-	rm -rf %{_datadir}/X11/xkb/compiled
+    rm -rf %{_datadir}/X11/xkb/compiled
 fi
 
 %files -f %{name}.lang
