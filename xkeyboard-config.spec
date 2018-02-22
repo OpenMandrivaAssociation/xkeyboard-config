@@ -3,7 +3,7 @@
 Name:		xkeyboard-config
 Epoch:		1
 Version:	2.23.1
-Release:	1
+Release:	2
 Summary:	X Keyboard Configuration Database
 License:	MIT
 Group:		Development/X11
@@ -96,7 +96,7 @@ ln -snf %{_localstatedir}/lib/xkb %{buildroot}%{_datadir}/X11/xkb/compiled
 
 %find_lang %{name}
 
-%pre
+%triggerin -- %{name} < 1:2.23.1-2
 # this was a directory in the old installation
 if [ -d "%{_datadir}/X11/xkb/compiled" ]; then
     rm -rf %{_datadir}/X11/xkb/compiled
