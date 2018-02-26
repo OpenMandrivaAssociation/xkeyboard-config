@@ -3,7 +3,7 @@
 Name:		xkeyboard-config
 Epoch:		1
 Version:	2.23.1
-Release:	1
+Release:	3
 Summary:	X Keyboard Configuration Database
 License:	MIT
 Group:		Development/X11
@@ -44,6 +44,10 @@ Patch10:	xkeyboard-config-2.11-altai.patch
 Patch11:	xkeyboard-config-ch-scriptdeadkeys.patch
 
 Patch12:	xkeyboard-config-2.10.1-br-support.patch
+
+# (tpg) patches from Fedora
+Patch20:	0001-Add-evdev-mappings-for-KEY_SOUND-KEY_UWB-KEY_WWAN-an.patch 
+Patch21:	0001-Fix-typo-in-Polish-symbols-file.patch
 
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	glib-gettextize
@@ -96,7 +100,7 @@ ln -snf %{_localstatedir}/lib/xkb %{buildroot}%{_datadir}/X11/xkb/compiled
 
 %find_lang %{name}
 
-%pre
+%triggerin -- %{name} < 1:2.23.1-2
 # this was a directory in the old installation
 if [ -d "%{_datadir}/X11/xkb/compiled" ]; then
     rm -rf %{_datadir}/X11/xkb/compiled
