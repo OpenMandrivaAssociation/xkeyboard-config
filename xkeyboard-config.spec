@@ -46,8 +46,7 @@ Patch11:	xkeyboard-config-ch-scriptdeadkeys.patch
 Patch12:	xkeyboard-config-2.10.1-br-support.patch
 
 # (tpg) patches from Fedora
-Patch20:	0001-Add-evdev-mappings-for-KEY_SOUND-KEY_UWB-KEY_WWAN-an.patch 
-Patch21:	0001-Fix-typo-in-Polish-symbols-file.patch
+Patch20:	0001-Fix-typo-in-Polish-symbols-file.patch
 
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	glib-gettextize
@@ -78,7 +77,6 @@ keyboard configuration data (XKB) for various X Window System implementations.
 %patch11 -p1 -b .ch_scriptdeadkeys
 %patch12 -p1 -b .br
 %patch20 -p1
-%patch21 -p1
 
 # fix build
 aclocal
