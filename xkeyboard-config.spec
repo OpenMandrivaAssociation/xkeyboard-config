@@ -3,7 +3,7 @@
 Name:		xkeyboard-config
 Epoch:		1
 Version:	2.23.1
-Release:	3
+Release:	4
 Summary:	X Keyboard Configuration Database
 License:	MIT
 Group:		Development/X11
@@ -77,6 +77,8 @@ keyboard configuration data (XKB) for various X Window System implementations.
 #patch10 -p1 -b .russain_national
 %patch11 -p1 -b .ch_scriptdeadkeys
 %patch12 -p1 -b .br
+%patch20 -p1
+%patch21 -p1
 
 # fix build
 aclocal
