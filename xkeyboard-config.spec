@@ -2,8 +2,8 @@
 
 Name:		xkeyboard-config
 Epoch:		1
-Version:	2.23.1
-Release:	4
+Version:	2.24
+Release:	1
 Summary:	X Keyboard Configuration Database
 License:	MIT
 Group:		Development/X11
@@ -44,9 +44,6 @@ Patch10:	xkeyboard-config-2.11-altai.patch
 Patch11:	xkeyboard-config-ch-scriptdeadkeys.patch
 
 Patch12:	xkeyboard-config-2.10.1-br-support.patch
-
-# (tpg) patches from Fedora
-Patch20:	0001-Fix-typo-in-Polish-symbols-file.patch
 
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	glib-gettextize
