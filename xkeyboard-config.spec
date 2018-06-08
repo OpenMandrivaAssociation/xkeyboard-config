@@ -73,7 +73,6 @@ keyboard configuration data (XKB) for various X Window System implementations.
 #patch10 -p1 -b .russain_national
 %patch11 -p1 -b .ch_scriptdeadkeys
 %patch12 -p1 -b .br
-%patch20 -p1
 
 # fix build
 aclocal
