@@ -2,8 +2,8 @@
 
 Name:		xkeyboard-config
 Epoch:		1
-Version:	2.25
-Release:	3
+Version:	2.26
+Release:	1
 Summary:	X Keyboard Configuration Database
 License:	MIT
 Group:		Development/X11
@@ -34,10 +34,10 @@ Patch3:		xkb-fix_uz.patch
 # (fc) 1.5-2mdv map key_battery, wlan, bluetooth, uwb to their XF86 keycodes (GIT)
 Patch6:		xkeyboard-config-1.4-battery.patch
 # Revert change that disables zapping by default
-Patch9:		xkeyboard-config-2.8-Enable-zapping-by-default.patch
+#Patch9:		xkeyboard-config-2.8-Enable-zapping-by-default.patch
 
 #Add Altai and fix some Russia national layout
-Patch10:	xkeyboard-config-2.11-altai.patch
+#Patch10:	xkeyboard-config-2.11-altai.patch
 
 # Add Swiss-German layout with ¨ deadkey, but without turning important
 # development characters like ` or ' into deadkeys
@@ -72,15 +72,7 @@ Requires:	%{name} = %{EVRD}
 Development files for %{name}.
 
 %prep
-%setup -q
-%patch0 -p1
-%patch1 -p1
-%patch3 -p1
-%patch6 -p1 -b .battery
-#patch9 -p1 -b .enable-zapping
-#patch10 -p1 -b .russain_national
-%patch11 -p1 -b .ch_scriptdeadkeys
-%patch12 -p1 -b .br
+%autosetup -p1
 
 # fix build
 aclocal
