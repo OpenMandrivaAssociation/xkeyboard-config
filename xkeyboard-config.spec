@@ -17,22 +17,8 @@ Patch0:		xkeyboard-config-2.17-fixkbd.patch
 # Comments have been sent to the Kotoistus project.
 Patch1:		xkeyboard-config-2.10.1-fi-kotoistus_classic_nbsp.patch
 
-# Morocco symbols/tifinagh should be symbols/ma in the official version
-# Nigerian symbols/ng seens to match
-# Pakistanese is pk in 1.1, not snd
-# symbols/tm "Turkmen" is the same as symbols/tr "Turkey" in 1.1? seens
-#	quite different
-# symbols/urd seens to be 1.1's symbols/in (claims support for all Indian
-#	keyboard layouts)
-# symbols/kur "Kurdish" is apparently in several different Kurdish support
-#	files/descriptions
-# symbols/chr "Cherokee" being dropped? or already integrated in some other
-#	description?
-Patch2:		xkbdata-1.0.1-newkbd.patch
 Patch3:		xkb-fix_uz.patch
 
-# (fc) 1.5-2mdv map key_battery, wlan, bluetooth, uwb to their XF86 keycodes (GIT)
-Patch6:		xkeyboard-config-1.4-battery.patch
 # Revert change that disables zapping by default
 #Patch9:		xkeyboard-config-2.8-Enable-zapping-by-default.patch
 
