@@ -2,8 +2,8 @@
 
 Name:		xkeyboard-config
 Epoch:		1
-Version:	2.23.1
-Release:	4
+Version:	2.26
+Release:	0.1
 Summary:	X Keyboard Configuration Database
 License:	MIT
 Group:		Development/X11
@@ -17,36 +17,19 @@ Patch0:		xkeyboard-config-2.17-fixkbd.patch
 # Comments have been sent to the Kotoistus project.
 Patch1:		xkeyboard-config-2.10.1-fi-kotoistus_classic_nbsp.patch
 
-# Morocco symbols/tifinagh should be symbols/ma in the official version
-# Nigerian symbols/ng seens to match
-# Pakistanese is pk in 1.1, not snd
-# symbols/tm "Turkmen" is the same as symbols/tr "Turkey" in 1.1? seens
-#	quite different
-# symbols/urd seens to be 1.1's symbols/in (claims support for all Indian
-#	keyboard layouts)
-# symbols/kur "Kurdish" is apparently in several different Kurdish support
-#	files/descriptions
-# symbols/chr "Cherokee" being dropped? or already integrated in some other
-#	description?
-Patch2:		xkbdata-1.0.1-newkbd.patch
 Patch3:		xkb-fix_uz.patch
 
-# (fc) 1.5-2mdv map key_battery, wlan, bluetooth, uwb to their XF86 keycodes (GIT)
-Patch6:		xkeyboard-config-1.4-battery.patch
 # Revert change that disables zapping by default
-Patch9:		xkeyboard-config-2.8-Enable-zapping-by-default.patch
+#Patch9:		xkeyboard-config-2.8-Enable-zapping-by-default.patch
 
 #Add Altai and fix some Russia national layout
-Patch10:	xkeyboard-config-2.11-altai.patch
+#Patch10:	xkeyboard-config-2.11-altai.patch
 
 # Add Swiss-German layout with ¨ deadkey, but without turning important
 # development characters like ` or ' into deadkeys
 Patch11:	xkeyboard-config-ch-scriptdeadkeys.patch
 
 Patch12:	xkeyboard-config-2.10.1-br-support.patch
-
-# (tpg) patches from Fedora
-Patch20:	0001-Fix-typo-in-Polish-symbols-file.patch
 
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	glib-gettextize
@@ -66,17 +49,17 @@ BuildArch:	noarch
 Xkeyboard-config provides consistent, well-structured, frequently released of X
 keyboard configuration data (XKB) for various X Window System implementations.
 
+%package devel
+Summary:	Development files for %{name}
+Group:		Development/Other
+Requires:	%{name} = %{EVRD}
+
+%description devel
+Development files for %{name}.
+
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch3 -p1
-%patch6 -p1 -b .battery
-#patch9 -p1 -b .enable-zapping
-#patch10 -p1 -b .russain_national
-%patch11 -p1 -b .ch_scriptdeadkeys
-%patch12 -p1 -b .br
-%patch20 -p1
+%apply_patches
 
 # fix build
 aclocal
@@ -110,5 +93,7 @@ fi
 %dir %{_datadir}/X11/xkb/
 %attr(1777,root,root) %dir %{_localstatedir}/lib/xkb
 %{_datadir}/X11/xkb/*
-%{_datadir}/pkgconfig/xkeyboard-config.pc
 %{_mandir}/man7/xkeyboard-config.7.*
+
+%files devel
+%{_datadir}/pkgconfig/xkeyboard-config.pc
