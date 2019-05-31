@@ -2,7 +2,7 @@
 
 Name:		xkeyboard-config
 Epoch:		1
-Version:	2.26
+Version:	2.27
 Release:	1
 Summary:	X Keyboard Configuration Database
 License:	MIT
@@ -28,8 +28,8 @@ Patch3:		xkb-fix_uz.patch
 # Add Swiss-German layout with ¨ deadkey, but without turning important
 # development characters like ` or ' into deadkeys
 Patch11:	xkeyboard-config-ch-scriptdeadkeys.patch
-
-Patch12:	xkeyboard-config-2.10.1-br-support.patch
+# (tpg) rediff if you like it
+#Patch12:	xkeyboard-config-2.10.1-br-support.patch
 
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	glib-gettextize
