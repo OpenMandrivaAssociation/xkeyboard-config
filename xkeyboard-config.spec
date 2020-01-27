@@ -3,7 +3,7 @@
 Name:		xkeyboard-config
 Epoch:		1
 Version:	2.28
-Release:	1
+Release:	2
 Summary:	X Keyboard Configuration Database
 License:	MIT
 Group:		Development/X11
@@ -31,6 +31,11 @@ Patch11:	xkeyboard-config-ch-scriptdeadkeys.patch
 # (tpg) rediff if you like it
 #Patch12:	xkeyboard-config-2.10.1-br-support.patch
 
+# (tpg) patches from Debian
+# https://salsa.debian.org/xorg-team/data/xkb-data/tree/debian-unstable/debian/patches
+Patch20:	revert-Map-evdev-keycode-KEY_BRIGHTNESS_CYCLE.diff
+Patch21:	revert-Map-evdev-keycode-KEY_KEYBOARD.diff
+Patch22:	revert-Map-evdev-keycode-KEY_FAVORITES.diff
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	glib-gettextize
 BuildRequires:	intltool
@@ -38,7 +43,7 @@ BuildRequires:	perl-XML-Parser
 BuildRequires:	x11-proto-devel
 BuildRequires:	x11-util-macros
 BuildRequires:	xkbcomp
-# For the mab page
+# For the man page
 BuildRequires:	xsltproc
 # https://qa.mandriva.com/show_bug.cgi?id=44052
 BuildRequires:	gettext-devel
