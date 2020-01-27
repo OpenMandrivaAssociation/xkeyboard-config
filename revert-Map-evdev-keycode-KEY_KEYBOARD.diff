@@ -26,10 +26,10 @@ index 90b8278d..f2630ffe 100644
  	<I255> = 255;	// #define KEY_RFKILL              247
  
  	<I372> = 372;   // #define KEY_FAVORITES           364
--	<I374> = 374;   // #define KEY_KEYBOARD            366
+-	<I382> = 382;   // #define KEY_KEYBOARD            374
+ 	<I569> = 569;   // #define KEY_ROTATE_LOCK_TOGGLE  561
  
  	// Fake keycodes for virtual keys
- 	<LVL3> =   92;
 diff --git a/symbols/inet b/symbols/inet
 index 4d774fac..469a7d65 100644
 --- a/symbols/inet
@@ -38,7 +38,7 @@ index 4d774fac..469a7d65 100644
      key <I255>   {      [ XF86RFKill            ]       }; // KEY_RFKILL
  
      key <I372>  {       [ XF86Favorites          ]       };
--    key <I374>  {       [ XF86Keyboard           ]       };
+-    key <I382>  {       [ XF86Keyboard           ]       };
+     key <I569>  {       [ XF86RotationLockToggle ]       };
  
      key <FK13>   {      [ XF86Tools         ]       };
-     key <FK14>   {      [ XF86Launch5       ]       };
