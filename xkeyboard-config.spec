@@ -33,9 +33,9 @@ Patch11:	xkeyboard-config-ch-scriptdeadkeys.patch
 
 # (tpg) patches from Debian
 # https://salsa.debian.org/xorg-team/data/xkb-data/tree/debian-unstable/debian/patches
-Patch20:	revert-Map-evdev-keycode-KEY_BRIGHTNESS_CYCLE.diff
-Patch21:	revert-Map-evdev-keycode-KEY_KEYBOARD.diff
-Patch22:	revert-Map-evdev-keycode-KEY_FAVORITES.diff
+#Patch20:	revert-Map-evdev-keycode-KEY_BRIGHTNESS_CYCLE.diff
+#Patch21:	revert-Map-evdev-keycode-KEY_KEYBOARD.diff
+#Patch22:	revert-Map-evdev-keycode-KEY_FAVORITES.diff
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	glib-gettextize
 BuildRequires:	intltool
