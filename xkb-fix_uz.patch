@@ -5,12 +5,12 @@ Subject: [PATCH 4/6] xkb-fix_uz
 
 ---
  symbols/uz |    4 ++--
-  1 files changed, 2 insertions(+), 2 deletions(-)
+ 1 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/symbols/uz b/symbols/uz
 index b37a6ca..823ad71 100644
---- xkeyboard-config-2.11/symbols/uz	2013-12-18 22:33:58.000000000 +0000
-+++ xkeyboard-config-2.11/symbols/uz.tpg	2014-02-06 16:48:43.523791268 +0000
+--- a/symbols/uz
++++ b/symbols/uz
 @@ -27,7 +27,7 @@
  //
  // Latin variant is somewhat experimental, since there is no
@@ -18,13 +18,14 @@ index b37a6ca..823ad71 100644
 -// apostrophe is replaced with U02BB.
 +// backslash and pipe are replaced with U02BB and U02BC, respectively.
  
- default  partial alphanumeric_keys
+ default partial alphanumeric_keys
  xkb_symbols "cyrillic" {
-@@ -92,4 +92,5 @@
+@@ -91,5 +91,5 @@
+ xkb_symbols "latin" {
      include "us"
      name[Group1]= "Uzbek (Latin)";
-     key <AC11>  { [0x010002BB, quotedbl] };
-+    key <BKSL>  { [0x010002BB, 0x010002BC] };
+-    key <AC11>  { [0x010002BB, quotedbl] };
++    key <BKSL> { [ 0x010002BB, 0x010002BC ] };
  };
 -- 
 1.6.3.2
