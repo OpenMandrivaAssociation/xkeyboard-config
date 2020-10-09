@@ -2,7 +2,7 @@
 
 Name:		xkeyboard-config
 Epoch:		1
-Version:	2.30
+Version:	2.31
 Release:	1
 Summary:	X Keyboard Configuration Database
 License:	MIT
@@ -25,7 +25,6 @@ Patch10:	xkeyboard-config-2.10.1-fixkbd.patch
 # Comments have been sent to the Kotoistus project.
 Patch11:	xkeyboard-config-2.10.1-fi-kotoistus_classic_nbsp.patch
 Patch12:	xkb-fix_uz.patch
-
 
 # Other patches
 # Add Swiss-German layout with ¨ deadkey, but without turning important
