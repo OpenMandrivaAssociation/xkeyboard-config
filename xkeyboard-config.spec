@@ -2,13 +2,13 @@
 
 Name:		xkeyboard-config
 Epoch:		1
-Version:	2.34
+Version:	2.35.1
 Release:	1
 Summary:	X Keyboard Configuration Database
 License:	MIT
 Group:		Development/X11
 URL:		http://www.freedesktop.org/wiki/Software/XKeyboardConfig
-Source0:	http://www.x.org/releases/individual/data/xkeyboard-config/%{name}-%{version}.tar.bz2
+Source0:	http://www.x.org/releases/individual/data/xkeyboard-config/%{name}-%{version}.tar.xz
 Source1:	xkeyboard-config.rpmlintrc
 BuildRequires:	meson
 BuildRequires:	gettext-devel
