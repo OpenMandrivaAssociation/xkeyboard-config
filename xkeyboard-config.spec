@@ -1,8 +1,9 @@
-%define git_url git://anongit.freedesktop.org/xkeyboard-config
+# (tpg) Package contains data-only, no binaries, so no debuginfo is needed
+%global debug_package %{nil}
 
 Name:		xkeyboard-config
 Epoch:		1
-Version:	2.37
+Version:	2.38
 Release:	1
 Summary:	X Keyboard Configuration Database
 License:	MIT
@@ -60,12 +61,6 @@ rm -f %{buildroot}%{_datadir}/X11/xkb/compiled
 }
 
 %find_lang %{name}
-
-%triggerin -- %{name} < 1:2.23.1-2
-# this was a directory in the old installation
-if [ -d "%{_datadir}/X11/xkb/compiled" ]; then
-    rm -rf %{_datadir}/X11/xkb/compiled
-fi
 
 %files -f files.list -f %{name}.lang
 %doc AUTHORS README NEWS COPYING docs/README.* docs/HOWTO.*
