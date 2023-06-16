@@ -3,8 +3,8 @@
 
 Name:		xkeyboard-config
 Epoch:		1
-Version:	2.38
-Release:	2
+Version:	2.39
+Release:	1
 Summary:	X Keyboard Configuration Database
 License:	MIT
 Group:		Development/X11
