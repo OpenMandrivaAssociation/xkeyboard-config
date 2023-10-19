@@ -3,7 +3,7 @@
 
 Name:		xkeyboard-config
 Epoch:		1
-Version:	2.39
+Version:	2.40
 Release:	1
 Summary:	X Keyboard Configuration Database
 License:	MIT
@@ -15,6 +15,7 @@ BuildRequires:	meson
 BuildRequires:	gettext-devel
 BuildRequires:	glib-gettextize
 BuildRequires:	intltool
+BuildRequires:	locales-extra-charsets
 # For the man page
 BuildRequires:	xsltproc
 BuildRequires:	xkbcomp
