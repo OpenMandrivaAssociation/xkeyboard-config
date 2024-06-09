@@ -3,7 +3,7 @@
 
 Name:		xkeyboard-config
 Epoch:		1
-Version:	2.41
+Version:	2.42
 Release:	1
 Summary:	X Keyboard Configuration Database
 License:	MIT
