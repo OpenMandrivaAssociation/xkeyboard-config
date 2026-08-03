@@ -66,7 +66,7 @@ rm -f %{buildroot}%{_datadir}/X11/xkb/compiled
 %find_lang %{name}
 
 %files -f files.list -f %{name}.lang
-%doc AUTHORS README NEWS COPYING docs/README.* docs/HOWTO.*
+%doc AUTHORS COPYING docs/README.* docs/HOWTO.*
 %doc %{_mandir}/man7/xkeyboard-config.*
 %{_datadir}/X11/xkb/rules/xorg
 %{_datadir}/X11/xkb/rules/xorg.lst
