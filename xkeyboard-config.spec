@@ -1,6 +1,7 @@
 # (tpg) Package contains data-only, no binaries, so no debuginfo is needed
 %global debug_package %{nil}
 %undefine _debugsource_packages
+%define _empty_manifest_terminate_build 0
 
 Name:		xkeyboard-config
 Epoch:		1
